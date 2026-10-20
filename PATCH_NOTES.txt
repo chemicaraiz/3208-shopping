@@ -197,3 +197,12 @@ Dashboard Reminder / Reservation Map Phase:
 - 住所または場所検索で緯度経度が取得できた場合、Street Viewプレビューを表示
 - 地図プレビューをドラッグ / 拡大縮小できるように改善
 - PWA cache: v16
+
+
+Reservation Detail / Destination View:
+- 予約画面の「Google Maps」「Street View」ボタンを削除
+- 地図下は「ナビ開始」ボタンのみに整理
+- Street Viewは操作用ではなく「目的地ビュー」の確認用プレビューとして表示
+- ダッシュボードの「今日の予約」POP内の予約行をタップ可能に変更
+- 予約行タップで会社名 / 内容 / 場所 / 住所 / 電話 / 担当 / 商品明細 / 合計 / 支払 / メモの詳細を表示
+- PWA cache: v17
