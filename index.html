@@ -203,7 +203,7 @@
   </div>
 
   <input type='hidden' id='reserveTaxRate' value='8'>
-</div></div>
+</div>
 <button class='primary action-save'>保存する</button></form></div></div></section>
 <div class='toast' id='toast'></div></div>
 <script>
@@ -727,8 +727,8 @@ function renderReservations(){
 function showLocationPreview(query,lat=null,lon=null){
   const q=query.trim();
   if(!q){
-    addressPreview.classList.add('hidden');mapHint.classList.add('hidden');streetViewWrap.classList.add('hidden');locationActions.classList.add('hidden');
-    addressPreview.innerHTML='';streetViewPreview.innerHTML='';return;
+    addressPreview.classList.add('hidden');mapHint.classList.add('hidden');locationActions.classList.add('hidden');
+    addressPreview.innerHTML='';return;
   }
   const mapQuery=lat!==null&&lon!==null?`${lat},${lon}`:q;
   addressPreview.classList.remove('hidden');
@@ -736,13 +736,6 @@ function showLocationPreview(query,lat=null,lon=null){
   locationActions.classList.remove('hidden');
   addressPreview.innerHTML=`<iframe loading='lazy' src='https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed' title='地図プレビュー'></iframe>`;
   navigateLink.href=`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}&travelmode=driving&dir_action=navigate`;
-  if(lat!==null&&lon!==null){
-    streetViewWrap.classList.remove('hidden');
-    const pano=`${lat},${lon}`;
-    streetViewPreview.innerHTML=`<iframe loading='lazy' src='https://maps.google.com/maps?q=&layer=c&cbll=${encodeURIComponent(pano)}&cbp=11,0,0,0,0&output=svembed' title='目的地ビュー'></iframe>`;
-  }else{
-    streetViewWrap.classList.add('hidden');streetViewPreview.innerHTML='';
-  }
 }
 async function lookupPlaceAddress(){
   const q=reservePlace.value.trim();
@@ -774,7 +767,7 @@ async function lookupAddress(){
     if(rows.length){
       const hit=rows[0];
       showLocationPreview(q,hit.lat,hit.lon);
-      msg('地図とストリートビューを表示しました');
+      msg('地図を表示しました');
     }else{
       showLocationPreview(q);msg('地図を表示しました');
     }
