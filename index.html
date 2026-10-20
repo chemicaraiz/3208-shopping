@@ -775,13 +775,39 @@ async function lookupAddress(){
     console.error(e);showLocationPreview(q);msg('地図を表示しました');
   }finally{addressLookup.disabled=false;addressLookup.textContent='地図表示'}
 }
+function resetReservationForm(date=''){
+  recordId.value='';
+  if(date)recordDate.value=date;
+  recordMemo.value='';
+  reserveContent.value='';
+  reserveCompany.value='';
+  reservePlace.value='';
+  reserveAddress.value='';
+  reservePhone.value='';
+  reservePerson.value='';
+  reservePaymentMethod.value='現金';
+  reservePaymentStatus.value='未収';
+  reservePaymentDue.value='';
+  reservePaidAmount.value=0;
+  reserveTaxRate.value='8';
+  reserveItems.innerHTML='';
+  addReserveItem({product:'',qty:1,amount:0});
+  showLocationPreview('');
+  calcReserveTotal();
+}
 function openReservation(id=''){
   const r=id?reservations.find(x=>x.id===id):null;
-  recordId.value=r?.id||'';recordDate.value=r?.date||new Date().toISOString().slice(0,10);recordMemo.value=r?.memo||'';reserveContent.value=r?.content||'';reserveCompany.value=r?.company||'';reservePlace.value=r?.place||'';reserveAddress.value=r?.address||'';reservePhone.value=r?.phone||'';reservePerson.value=r?.person||'';reservePaymentMethod.value=r?.paymentMethod||'現金';reservePaymentStatus.value=r?.paymentStatus||'未収';reservePaymentDue.value=r?.paymentDue||'';reservePaidAmount.value=r?.paidAmount||0;reserveTaxRate.value=String(r?.taxRate||8);
-  reserveItems.innerHTML='';
-  const items=r?.items?.length?r.items:[{product:r?.product||'',qty:r?.qty||1,amount:r?.amount||0}];
-  items.forEach(addReserveItem);
-  setRecordType('reservation');openS(recordSheet);showLocationPreview(r?.address||r?.place||'');calcReserveTotal();
+  if(!r){
+    resetReservationForm(localTodayISO());
+  }else{
+    recordId.value=r.id;recordDate.value=r.date;recordMemo.value=r.memo||'';reserveContent.value=r.content||'';reserveCompany.value=r.company||'';reservePlace.value=r.place||'';reserveAddress.value=r.address||'';reservePhone.value=r.phone||'';reservePerson.value=r.person||'';reservePaymentMethod.value=r.paymentMethod||'現金';reservePaymentStatus.value=r.paymentStatus||'未収';reservePaymentDue.value=r.paymentDue||'';reservePaidAmount.value=r.paidAmount||0;reserveTaxRate.value=String(r.taxRate||8);
+    reserveItems.innerHTML='';
+    const items=r.items?.length?r.items:[{product:r.product||'',qty:r.qty||1,amount:r.amount||0}];
+    items.forEach(addReserveItem);
+    showLocationPreview(r.address||r.place||'');
+    calcReserveTotal();
+  }
+  setRecordType('reservation');openS(recordSheet);
 }
 async function deleteReservation(id){if(!confirm('この予約を削除しますか？'))return;await runCloud(()=>api('reservations',{method:'DELETE',query:`?id=eq.${encodeURIComponent(id)}`,prefer:'return=minimal'}),'予約を削除しました')}
 function renderDelivery(){
@@ -862,7 +888,9 @@ function renderPrep(){
 }
 function setRecordType(t){recordType.value=t;typePrep.classList.toggle('active',t==='prep');typeDelivery.classList.toggle('active',t==='delivery');typeReservation.classList.toggle('active',t==='reservation');recordVendorField.classList.toggle('hidden',t!=='delivery');recordAmountField.classList.toggle('hidden',t!=='delivery');reservationFields.classList.toggle('hidden',t!=='reservation');recordItem.closest('.field').classList.toggle('hidden',t==='reservation');recordQty.closest('.two').classList.toggle('hidden',t==='reservation');recordItem.required=t!=='reservation';recordQty.required=t!=='reservation';genericMemoField.classList.toggle('hidden',t==='reservation');if(t==='prep')recordTitle.textContent=recordId.value?'仕込みを編集':'仕込みを追加';if(t==='delivery')recordTitle.textContent=recordId.value?'納品を編集':'納品を追加';if(t==='reservation')recordTitle.textContent=recordId.value?'予約を編集':'予約を追加'}
 function openRecord(date,id=''){
-  const r=id?prepRecords.find(x=>x.id===id):null;recordId.value=r?.id||'';recordTitle.textContent=r?'記録を編集':'記録を追加';recordDate.value=r?.date||date||new Date().toISOString().slice(0,10);recordItem.value=r?.item||'';recordQty.value=r?.qty??'';recordUnit.value=r?.unit||'個';recordVendor.value=r?.vendorId||m.vendors.find(x=>x.isDelivery)?.id||'';recordAmount.value=r?.amount||0;recordMemoGeneric.value=r?.memo||'';setRecordType(r?.type||'prep');openS(recordSheet)
+  const r=id?prepRecords.find(x=>x.id===id):null;
+  if(!r)resetReservationForm(date||localTodayISO());
+  recordId.value=r?.id||'';recordTitle.textContent=r?'記録を編集':'記録を追加';recordDate.value=r?.date||date||new Date().toISOString().slice(0,10);recordItem.value=r?.item||'';recordQty.value=r?.qty??'';recordUnit.value=r?.unit||'個';recordVendor.value=r?.vendorId||m.vendors.find(x=>x.isDelivery)?.id||'';recordAmount.value=r?.amount||0;recordMemoGeneric.value=r?.memo||'';setRecordType(r?.type||'prep');openS(recordSheet)
 }
 function openDay(date){
   selectedPrepDate=date;
