@@ -254,3 +254,12 @@ Reservation / Documents / Store Settings Preview:
 - 納品書 / 請求書 / 領収書に店舗情報・税込単価・予約時間を反映
 - 場所名から取得した住所を日本向けに整形して住所欄へ入力
 - PWA cache: v21
+
+
+Reservation Amount Fix:
+- 予約商品の行金額表示をreadonly inputから表示専用要素へ変更
+- 個数または税込単価の入力時に行金額を即時再計算
+- input / change の両方で再計算し、iPhoneでも反映しやすい形へ変更
+- 全商品の合計金額も同時に再計算
+- 保存時も 個数 × 税込単価 から金額を再計算し、画面表示との不一致を防止
+- PWA cache: v22
