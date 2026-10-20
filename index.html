@@ -53,12 +53,14 @@
   .dblist{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .dbcard{padding:14px}
   .master-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  #prep.screen.active{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);gap:14px;align-items:start}
-  #prep .mode-tabs{grid-column:1/-1}
+  #prep.screen.active{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.8fr);gap:14px;align-items:start}
+  #prep .workflow-tabs{grid-column:1/-1}
   #prep>.panel:first-of-type{grid-column:1/-1}
-  #prep .metrics{grid-column:1/-1}
-  #prep .panel:nth-of-type(2){grid-column:2;grid-row:4 / span 2}
-  #prep .cal{grid-column:1;grid-row:4}
+  #prep .metrics{grid-column:1}
+  #prep .panel:nth-of-type(2){grid-column:1/-1}
+  #delivery.screen.active{max-width:980px}
+  #calendar.screen.active{max-width:1080px}
+  #calendar .cal{padding:14px}
   .day{min-height:84px}
   .sheet{left:50%;right:auto;width:min(680px,72vw);transform:translate(-50%,105%)}
   .sheet.open{transform:translate(-50%,0)}
@@ -74,7 +76,7 @@
 }
 
 .mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:10px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.mode-tabs button{height:46px;border:0;background:#fff;font-weight:900;color:#5f6872}.mode-tabs button.active{background:#edf5ff;color:var(--blue)}
-.prep-head{display:grid;grid-template-columns:44px 1fr 44px 44px;gap:6px;align-items:center}.prep-head button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:20px;font-weight:900}.month-title{text-align:center;font-size:18px;font-weight:900}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}.metric.prep-metric{background:#eef9f0;border-color:#c9e8cf}.metric.delivery-metric{background:#fff1f2;border-color:#f3cbd0}.metric.prep-metric .metric-label,.metric.prep-metric .metric-value{color:#5a9c65}.metric.delivery-metric .metric-label,.metric.delivery-metric .metric-value{color:#d96f79}.metric-label{font-size:11px;color:var(--muted)}.metric-value{font-size:24px;font-weight:900;margin-top:3px}.summary-filter{margin-bottom:9px}.summary-list{display:grid;gap:10px}.summary-item{border:1px solid var(--line);border-radius:12px;padding:11px}.summary-name{font-size:16px;font-weight:900}.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}.summary-grid>div{font-size:11px;color:var(--muted);border-radius:10px;padding:8px 6px;text-align:center}.summary-grid b{display:block;font-size:15px;margin-top:2px}.prep-stat{background:#eef9f0;color:#5a9c65!important}.prep-stat b{color:#4e9059}.delivery-stat{background:#fff1f2;color:#d96f79!important}.delivery-stat b{color:#cc606b}.remaining-stat{background:#fff7e8;color:#c88a35!important}.remaining-stat b{color:#b97825}.remaining-stat.minus{background:#fff1f2;color:#d96f79!important}.remaining-stat.minus b{color:#cc606b}.history-title{font-size:12px;font-weight:900;margin-top:11px;padding-top:9px;border-top:1px solid var(--line)}.history-list{display:grid;gap:5px;margin-top:7px}.history-row{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:7px;align-items:center;font-size:12px;background:#fff7f8;border-radius:8px;padding:6px 7px}.history-date{color:var(--muted)}.history-vendor{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-qty{font-weight:900;white-space:nowrap;color:#cc606b}.history-empty{font-size:12px;color:var(--muted);margin-top:7px}.cal{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px}.cal-week,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.cal-week div{text-align:center;font-size:11px;color:var(--muted);padding:5px 0}.cal-week div:nth-child(6),.cal-week div:nth-child(7){color:#d96f79;font-weight:900}.day{min-height:62px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:5px 4px;text-align:left}.day.has{background:#fff;border-color:var(--line)}.day.weekend .day-num{color:#d96f79}.day.holiday{background:#fff8ed;border-color:#f3d4a5}.day.holiday .day-num{color:#d99235}.day.today{border:2px solid #4c8ee8;box-shadow:0 0 0 2px #e8f2ff inset}.day-num{font-weight:900}.day-top{display:flex;align-items:center;justify-content:space-between;gap:3px}.holiday-badge{font-size:9px;font-weight:900;color:#d99235;background:#fff0d8;border-radius:5px;padding:1px 3px}.today-badge{font-size:9px;font-weight:900;color:#3479d6;background:#e8f2ff;border-radius:5px;padding:1px 3px}.day-mark{display:grid;gap:2px;font-size:10px;color:var(--muted);margin-top:4px;line-height:1.2}.day-mark b{font-weight:900;border-radius:5px;padding:2px 4px;width:max-content}.day-mark .prep-mark{color:#3f8f4f;background:#eaf7ed}.day-mark .delivery-mark{color:#d35f6b;background:#fff0f2}.legend{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:7px}.legend-prep{color:#3f8f4f;font-weight:900}.legend-delivery{color:#d35f6b;font-weight:900}.legend-holiday{color:#d99235;font-weight:900}.legend-today{color:#3479d6;font-weight:900}.record-card{border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px}.record-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.record-type{font-size:11px;font-weight:900}.record-type.prep-type{color:#4e9059}.record-type.delivery-type{color:#cc606b}.record-name{font-weight:900;margin-top:2px}.record-sub{font-size:12px;color:var(--muted);margin-top:4px}.record-actions{display:flex;gap:6px}.record-actions button{height:32px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:0 9px;font-weight:800}.record-actions .danger{color:#d32f2f}.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}.seg button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-weight:900}.seg #typePrep.active{background:#eef9f0;color:#4e9059;border-color:#b9dec1}.seg #typeDelivery.active{background:#fff1f2;color:#cc606b;border-color:#efc0c6}.hidden{display:none!important}
+.prep-head{display:grid;grid-template-columns:44px 1fr 44px 44px;gap:6px;align-items:center}.prep-head button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:20px;font-weight:900}.month-title{text-align:center;font-size:18px;font-weight:900}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}.metric.prep-metric{background:#eef9f0;border-color:#c9e8cf}.metric.delivery-metric{background:#fff1f2;border-color:#f3cbd0}.metric.prep-metric .metric-label,.metric.prep-metric .metric-value{color:#5a9c65}.metric.delivery-metric .metric-label,.metric.delivery-metric .metric-value{color:#d96f79}.metric-label{font-size:11px;color:var(--muted)}.metric-value{font-size:24px;font-weight:900;margin-top:3px}.summary-filter{margin-bottom:9px}.summary-list{display:grid;gap:10px}.summary-item{border:1px solid var(--line);border-radius:12px;padding:11px}.summary-name{font-size:16px;font-weight:900}.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}.summary-grid>div{font-size:11px;color:var(--muted);border-radius:10px;padding:8px 6px;text-align:center}.summary-grid b{display:block;font-size:15px;margin-top:2px}.prep-stat{background:#eef9f0;color:#5a9c65!important}.prep-stat b{color:#4e9059}.delivery-stat{background:#fff1f2;color:#d96f79!important}.delivery-stat b{color:#cc606b}.remaining-stat{background:#fff7e8;color:#c88a35!important}.remaining-stat b{color:#b97825}.remaining-stat.minus{background:#fff1f2;color:#d96f79!important}.remaining-stat.minus b{color:#cc606b}.history-title{font-size:12px;font-weight:900;margin-top:11px;padding-top:9px;border-top:1px solid var(--line)}.history-list{display:grid;gap:5px;margin-top:7px}.history-row{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:7px;align-items:center;font-size:12px;background:#fff7f8;border-radius:8px;padding:6px 7px}.history-date{color:var(--muted)}.history-vendor{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-qty{font-weight:900;white-space:nowrap;color:#cc606b}.history-empty{font-size:12px;color:var(--muted);margin-top:7px}.cal{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px}.cal-week,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.cal-week div{text-align:center;font-size:11px;color:var(--muted);padding:5px 0}.cal-week div:nth-child(6),.cal-week div:nth-child(7){color:#d96f79;font-weight:900}.day{min-height:62px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:5px 4px;text-align:left}.day.has{background:#fff;border-color:var(--line)}.day.weekend .day-num{color:#d96f79}.day.holiday{background:#fff8ed;border-color:#f3d4a5}.day.holiday .day-num{color:#d99235}.day.today{border:2px solid #4c8ee8;box-shadow:0 0 0 2px #e8f2ff inset}.day-num{font-weight:900}.day-top{display:flex;align-items:center;justify-content:space-between;gap:3px}.holiday-badge{font-size:9px;font-weight:900;color:#d99235;background:#fff0d8;border-radius:5px;padding:1px 3px}.today-badge{font-size:9px;font-weight:900;color:#3479d6;background:#e8f2ff;border-radius:5px;padding:1px 3px}.day-mark{display:grid;gap:2px;font-size:10px;color:var(--muted);margin-top:4px;line-height:1.2}.day-mark b{font-weight:900;border-radius:5px;padding:2px 4px;width:max-content}.day-mark .prep-mark{color:#3f8f4f;background:#eaf7ed}.day-mark .delivery-mark{color:#d35f6b;background:#fff0f2}.legend{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:7px}.legend-prep{color:#3f8f4f;font-weight:900}.legend-delivery{color:#d35f6b;font-weight:900}.legend-holiday{color:#d99235;font-weight:900}.legend-today{color:#3479d6;font-weight:900}.record-card{border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px}.record-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.record-type{font-size:11px;font-weight:900}.record-type.prep-type{color:#4e9059}.record-type.delivery-type{color:#cc606b}.record-name{font-weight:900;margin-top:2px}.record-sub{font-size:12px;color:var(--muted);margin-top:4px}.record-actions{display:flex;gap:6px}.record-actions button{height:32px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:0 9px;font-weight:800}.record-actions .danger{color:#d32f2f}.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}.seg button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-weight:900}.seg #typePrep.active{background:#eef9f0;color:#4e9059;border-color:#b9dec1}.seg #typeDelivery.active{background:#fff1f2;color:#cc606b;border-color:#efc0c6}.delivery-list{display:grid;gap:8px}.delivery-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px}.delivery-card .top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.delivery-card .vendor{font-size:12px;color:#cc606b;font-weight:900}.delivery-card .qtyv{font-weight:900;color:#cc606b}.workflow-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}.workflow-tabs button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-weight:900}.workflow-tabs button.active{background:#edf5ff;color:var(--blue);border-color:#b8d4f7}.calendar-head{display:grid;grid-template-columns:44px 1fr 44px;gap:6px;align-items:center;margin-bottom:10px}.calendar-head button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:20px;font-weight:900}.hidden{display:none!important}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1769d2">
@@ -87,7 +89,9 @@
   <div class='desktop-brand'>3208<small>SHOPPING SYSTEM</small></div>
   <nav class='desktop-nav'>
     <button id='dshop' class='active'>仕入</button>
-    <button id='dprep'>仕込み・納品</button>
+    <button id='dprep'>仕込み</button>
+    <button id='ddelivery'>納品</button>
+    <button id='dcalendar'>カレンダー</button>
     <button id='dlist'>仕入リスト</button>
     <button id='ddb'>商品DB</button>
     <button id='dmaster'>マスタ管理</button>
@@ -100,16 +104,26 @@
 <section class='screen active' id='shop'><div class='mode-tabs'><button id='tabShop' class='active'>仕入れ</button><button id='tabPrep'>仕込み管理</button></div><div class='panel'><div class='small'>業者</div><div class='row'><select id='vs'></select><button class='plus' id='qa'>＋</button></div></div><div class='list' id='plist'></div></section>
 
 <section class='screen' id='prep'>
-  <div class='mode-tabs'><button id='tabShop2'>仕入れ</button><button id='tabPrep2' class='active'>仕込み管理</button></div>
+  <div class='workflow-tabs'><button class='active' id='wfPrep'>仕込み</button><button id='wfDelivery'>納品</button><button id='wfCalendar'>カレンダー</button></div>
   <div class='panel'><div class='prep-head'><button id='pmPrev'>＜</button><div class='month-title' id='pmTitle'></div><button id='pmNext'>＞</button><button class='plus' id='prAdd'>＋</button></div></div>
   <div class='metrics'><div class='metric prep-metric'><div class='metric-label'>今月の仕込み</div><div class='metric-value' id='prepCount'>0件</div></div><div class='metric delivery-metric'><div class='metric-label'>今月の納品</div><div class='metric-value' id='deliveryCount'>0件</div></div></div>
-  <div class='panel'><div class='dbtitle' style='font-size:16px;margin-bottom:8px'>月間集計</div><div class='summary-filter'><select id='prepVendorFilter'><option value=''>全業者</option></select></div><div class='summary-list' id='prepSummary'></div></div>
+  <div class='panel'><div class='dbtitle' style='font-size:16px;margin-bottom:8px'>仕込み・在庫集計</div><div class='summary-filter'><select id='prepVendorFilter'><option value=''>全納品先</option></select></div><div class='summary-list' id='prepSummary'></div></div>
+</section>
+<section class='screen' id='delivery'>
+  <div class='workflow-tabs'><button id='wfPrep2'>仕込み</button><button class='active' id='wfDelivery2'>納品</button><button id='wfCalendar2'>カレンダー</button></div>
+  <div class='panel'><div class='prep-head'><button id='dmPrev'>＜</button><div class='month-title' id='dmTitle'></div><button id='dmNext'>＞</button><button class='plus' id='deliveryAdd'>＋</button></div></div>
+  <div class='panel'><div class='dbtitle' style='font-size:16px;margin-bottom:8px'>納品先</div><select id='deliveryVendorFilter'><option value=''>全納品先</option></select></div>
+  <div class='delivery-list' id='deliveryList'></div>
+</section>
+<section class='screen' id='calendar'>
+  <div class='workflow-tabs'><button id='wfPrep3'>仕込み</button><button id='wfDelivery3'>納品</button><button class='active' id='wfCalendar3'>カレンダー</button></div>
+  <div class='panel'><div class='calendar-head'><button id='calPrev'>＜</button><div class='month-title' id='calTitle'></div><button id='calNext'>＞</button></div></div>
   <div class='cal'><div class='cal-week'><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div><div>日</div></div><div class='cal-grid' id='prepCal'></div><div class='legend'><span class='legend-prep'>仕＝仕込み</span><span class='legend-delivery'>納＝納品</span><span class='legend-holiday'>祝＝祝日</span><span class='legend-today'>青枠＝本日</span></div></div>
 </section>
 <section class='screen' id='db'><div class='panel'><div class='dbhead'><div><div class='dbtitle'>商品データベース</div><div class='small' id='dbc'></div></div><button class='dark' id='na'>＋ 新規</button></div></div><div class='toolbar'><input id='search' placeholder='商品名・業者で検索'><select id='vf'><option value=''>全業者</option></select></div><div class='dblist' id='dbl'></div></section>
 <section class='screen' id='master'><div class='panel'><div class='dbhead'><div><div class='dbtitle'>マスタ管理</div><div class='small'>業者・保管科目・税率</div></div><button class='dark' id='ma'>＋ 追加</button></div></div><div class='master-tabs'><button id='mtv' class='active'>業者</button><button id='mtc'>科目</button><button id='mtt'>税率</button></div><div class='master-list' id='mlist'></div><div class='master-note'>業者は「仕入・納品・自社」を複数選択できます。使用中のマスタは削除できません。</div></section></main>
 <div class='bottom' id='bottom'><div class='bi'><div class='sum'><span id='cnt'>0商品</span><span><small>税込</small> <span class='total' id='tot'>0円</span></span></div><button class='primary' id='ol'>仕入リストを見る</button></div></div>
-<div class='back' id='dbk'></div><aside class='drawer' id='drawer'><div class='dhead'><b style='font-size:20px'>メニュー</b><button class='x' id='dc'>×</button></div><div class='nav'><button id='nshop' class='active'>商品一覧</button><button id='nprep'>仕込み管理</button><button id='nlist'>仕入リスト</button><button id='ndb'>商品DB</button><button id='nmaster'>マスタ管理</button></div></aside>
+<div class='back' id='dbk'></div><aside class='drawer' id='drawer'><div class='dhead'><b style='font-size:20px'>メニュー</b><button class='x' id='dc'>×</button></div><div class='nav'><button id='nshop' class='active'>仕入</button><button id='nprep'>仕込み</button><button id='ndelivery'>納品</button><button id='ncalendar'>カレンダー</button><button id='nlist'>仕入リスト</button><button id='ndb'>商品DB</button><button id='nmaster'>マスタ管理</button></div></aside>
 <div class='back' id='sbk'></div><section class='sheet' id='ls'><div class='sin'><div class='shead'><b style='font-size:20px'>仕入リスト</b><button class='x cls'>×</button></div><div class='sbody' id='lbody'></div><div class='sfoot'><div class='sum'><span id='sc'>0商品</span><span id='st'>税込 0円</span></div><button class='primary cls'>閉じる</button></div></div></section>
 <section class='sheet' id='ps'><div class='sin'><div class='shead'><b style='font-size:20px' id='pst'>商品を追加</b><button class='x cls'>×</button></div><div class='sbody'><form class='form' id='form'><input type='hidden' id='eid'><div class='field'><label>商品名</label><input id='pn' required placeholder='例：鶏もも肉 2kg'><div class='small'>内容量や単位は商品名に含める。</div></div><div class='field'><label>業者</label><select id='pv'></select></div><div class='field'><label>保管科目</label><select id='pc'></select></div><div class='two'><div class='field'><label>税抜単価</label><input id='pp' type='number' min='0' required></div><div class='field'><label>税率</label><select id='pt'></select></div></div><div class='field'><label>表示順</label><input id='po' type='number' min='1' required></div><div class='switchrow'><div><b>使用状態</b><div class='small'>OFFは仕入画面に表示しない</div></div><button type='button' class='sw on' id='sw'></button></div><button class='primary'>保存する</button></form></div></div></section><section class='sheet' id='ms'><div class='sin'><div class='shead'><b style='font-size:20px' id='mst'>マスタを追加</b><button class='x cls'>×</button></div><div class='sbody'><form class='form' id='mform'><input type='hidden' id='mid'><input type='hidden' id='mtype'><div class='field'><label id='mfieldlabel'>名称</label><input id='mvalue' required></div><div class='field' id='vendorUsageField'><label>用途</label><div class='usage-options'><label class='usage-check'><input type='checkbox' id='muPurchase'>仕入</label><label class='usage-check'><input type='checkbox' id='muDelivery'>納品</label><label class='usage-check'><input type='checkbox' id='muSelf'>自社</label></div><div class='small'>複数選択できます。</div></div><button class='primary'>保存する</button></form></div></div></section>
 <section class='sheet' id='daySheet'><div class='sin'><div class='shead'><b style='font-size:20px' id='dayTitle'>仕込み記録</b><button class='x cls'>×</button></div><div class='sbody' id='dayBody'></div><div class='sfoot'><button class='primary' id='dayAdd'>この日に追加</button></div></div></section>
@@ -191,6 +205,7 @@ async function loadCloud(){
     renderDb();
     renderMasters();
     renderPrep();
+    renderDelivery();
     setCloud('クラウド接続済み','ok');
   }catch(e){
     console.error(e);
@@ -248,6 +263,12 @@ function masters(){
   prepVendorFilter.innerHTML='<option value="">全納品先</option>';
   deliveryVendors.forEach(x=>prepVendorFilter.add(new Option(x.name,x.id)));
   if(prepFilterKeep&&deliveryVendors.some(x=>x.id===prepFilterKeep))prepVendorFilter.value=prepFilterKeep;
+  const deliveryFilterKeep=window.deliveryVendorFilter?deliveryVendorFilter.value:'';
+  if(window.deliveryVendorFilter){
+    deliveryVendorFilter.innerHTML='<option value="">全納品先</option>';
+    deliveryVendors.forEach(x=>deliveryVendorFilter.add(new Option(x.name,x.id)));
+    if(deliveryFilterKeep&&deliveryVendors.some(x=>x.id===deliveryFilterKeep))deliveryVendorFilter.value=deliveryFilterKeep;
+  }
   if(keep&&purchaseVendors.some(x=>x.id===keep))vs.value=keep;
   else if(purchaseVendors[0])vs.value=purchaseVendors[0].id;
 }
@@ -438,9 +459,23 @@ function localTodayISO(){
   return isoDate(d.getFullYear(),d.getMonth(),d.getDate());
 }
 
+function renderDelivery(){
+  const y=prepMonth.getFullYear(),mo=prepMonth.getMonth(),key=`${y}-${String(mo+1).padStart(2,'0')}`;
+  dmTitle.textContent=`${y}年${mo+1}月`;
+  const filter=deliveryVendorFilter.value;
+  const rows=prepRecords.filter(r=>r.type==='delivery'&&r.date.startsWith(key)&&(!filter||r.vendorId===filter)).sort((a,b)=>a.date.localeCompare(b.date)||a.item.localeCompare(b.item,'ja'));
+  deliveryList.innerHTML=rows.length?rows.map(r=>{
+    const dt=new Date(r.date+'T00:00:00');
+    return `<article class='delivery-card'><div class='top'><div><div class='vendor'>${esc(vn(r.vendorId))}</div><div class='record-name'>${esc(r.item)}</div><div class='record-sub'>${dt.getMonth()+1}/${dt.getDate()}${r.memo?'・'+esc(r.memo):''}</div></div><div><div class='qtyv'>${fmtQty(r.qty)}${esc(r.unit)}</div><div class='record-actions' style='margin-top:7px'><button onclick="openRecord('${r.date}','${r.id}')">編集</button><button class='danger' onclick="deleteRecord('${r.id}','${r.date}')">削除</button></div></div></div></article>`;
+  }).join(''):`<div class='empty'>この月の納品記録はありません</div>`;
+}
+function renderCalendar(){
+  renderPrep();
+  calTitle.textContent=pmTitle.textContent;
+}
 function renderPrep(){
   const y=prepMonth.getFullYear(),mo=prepMonth.getMonth(),key=`${y}-${String(mo+1).padStart(2,'0')}`;
-  pmTitle.textContent=`${y}年${mo+1}月`;
+  pmTitle.textContent=`${y}年${mo+1}月`;if(window.calTitle)calTitle.textContent=pmTitle.textContent;if(window.dmTitle)dmTitle.textContent=pmTitle.textContent;
   const monthly=prepRecords.filter(r=>r.date.startsWith(key));
   const vendorFilter=prepVendorFilter.value;
   prepCount.textContent=monthly.filter(r=>r.type==='prep').length+'件';
@@ -507,13 +542,13 @@ function openDay(date){selectedPrepDate=date;const rs=prepRecords.filter(r=>r.da
 async function deleteRecord(id,date){if(!confirm('この記録を削除しますか？'))return;closeS();await runCloud(()=>api('preparation_records',{method:'DELETE',query:`?id=eq.${encodeURIComponent(id)}`,prefer:'return=minimal'}),'削除しました');openDay(date)}
 
 function screen(n){
-  shop.classList.toggle('active',n==='s');prep.classList.toggle('active',n==='p');db.classList.toggle('active',n==='d');master.classList.toggle('active',n==='m');
-  bottom.classList.toggle('hide',n!=='s');nshop.classList.toggle('active',n==='s');nprep.classList.toggle('active',n==='p');ndb.classList.toggle('active',n==='d');nmaster.classList.toggle('active',n==='m');
-  const mobileTitle=n==='s'?'3208 仕入リスト':n==='p'?'3208 仕込み管理':n==='d'?'商品データベース':'マスタ管理';
-  const desktopTitle=n==='s'?'仕入':n==='p'?'仕込み・納品':n==='d'?'商品データベース':'マスタ管理';
+  shop.classList.toggle('active',n==='s');prep.classList.toggle('active',n==='p');delivery.classList.toggle('active',n==='y');calendar.classList.toggle('active',n==='c');db.classList.toggle('active',n==='d');master.classList.toggle('active',n==='m');
+  bottom.classList.toggle('hide',n!=='s');nshop.classList.toggle('active',n==='s');nprep.classList.toggle('active',n==='p');ndelivery.classList.toggle('active',n==='y');ncalendar.classList.toggle('active',n==='c');ndb.classList.toggle('active',n==='d');nmaster.classList.toggle('active',n==='m');
+  const mobileTitle=n==='s'?'3208 仕入リスト':n==='p'?'3208 仕込み':n==='y'?'3208 納品':n==='c'?'3208 カレンダー':n==='d'?'商品データベース':'マスタ管理';
+  const desktopTitle=n==='s'?'仕入':n==='p'?'仕込み':n==='y'?'納品':n==='c'?'カレンダー':n==='d'?'商品データベース':'マスタ管理';
   ht.textContent=mobileTitle;if(window.dht)dht.textContent=desktopTitle;
-  if(window.dshop){dshop.classList.toggle('active',n==='s');dprep.classList.toggle('active',n==='p');ddb.classList.toggle('active',n==='d');dmaster.classList.toggle('active',n==='m')}
-  closeD();if(n==='s')renderShop();else if(n==='p')renderPrep();else if(n==='d')renderDb();else renderMasters();
+  if(window.dshop){dshop.classList.toggle('active',n==='s');dprep.classList.toggle('active',n==='p');ddelivery.classList.toggle('active',n==='y');dcalendar.classList.toggle('active',n==='c');ddb.classList.toggle('active',n==='d');dmaster.classList.toggle('active',n==='m')}
+  closeD();if(n==='s')renderShop();else if(n==='p')renderPrep();else if(n==='y')renderDelivery();else if(n==='c')renderCalendar();else if(n==='d')renderDb();else renderMasters();
 }
 function openD(){drawer.classList.add('open');dbk.classList.add('open')}
 function closeD(){drawer.classList.remove('open');dbk.classList.remove('open')}
@@ -522,17 +557,19 @@ function closeS(){ls.classList.remove('open');ps.classList.remove('open');ms.cla
 function msg(t){toast.textContent=t;toast.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>toast.classList.remove('show'),1500)}
 
 mb.onclick=openD;dc.onclick=dbk.onclick=closeD;document.querySelectorAll('.cls').forEach(x=>x.onclick=closeS);sbk.onclick=closeS;
-nshop.onclick=()=>screen('s');nprep.onclick=()=>screen('p');ndb.onclick=()=>screen('d');nmaster.onclick=()=>screen('m');
+nshop.onclick=()=>screen('s');nprep.onclick=()=>screen('p');ndelivery.onclick=()=>screen('y');ncalendar.onclick=()=>screen('c');ndb.onclick=()=>screen('d');nmaster.onclick=()=>screen('m');
 nlist.onclick=()=>{closeD();renderList();openS(ls)};
 if(window.dshop)dshop.onclick=()=>screen('s');
 if(window.dprep)dprep.onclick=()=>screen('p');
+if(window.ddelivery)ddelivery.onclick=()=>screen('y');
+if(window.dcalendar)dcalendar.onclick=()=>screen('c');
 if(window.ddb)ddb.onclick=()=>screen('d');
 if(window.dmaster)dmaster.onclick=()=>screen('m');
 if(window.dlist)dlist.onclick=()=>{renderList();openS(ls)};
 if(window.dquick)dquick.onclick=()=>{renderList();openS(ls)};
 if(window.dadd)dadd.onclick=()=>addNew(false);
 mtv.onclick=()=>setMasterType('vendor');mtc.onclick=()=>setMasterType('category');mtt.onclick=()=>setMasterType('tax');ma.onclick=openMasterNew;
-tabShop.onclick=tabShop2.onclick=()=>screen('s');tabPrep.onclick=tabPrep2.onclick=()=>screen('p');pmPrev.onclick=()=>{prepMonth.setMonth(prepMonth.getMonth()-1);renderPrep()};pmNext.onclick=()=>{prepMonth.setMonth(prepMonth.getMonth()+1);renderPrep()};prepVendorFilter.onchange=renderPrep;prAdd.onclick=()=>openRecord(new Date().toISOString().slice(0,10));dayAdd.onclick=()=>openRecord(selectedPrepDate);typePrep.onclick=()=>setRecordType('prep');typeDelivery.onclick=()=>setRecordType('delivery');
+tabShop.onclick=()=>screen('s');tabPrep.onclick=()=>screen('p');wfPrep.onclick=wfPrep2.onclick=wfPrep3.onclick=()=>screen('p');wfDelivery.onclick=wfDelivery2.onclick=wfDelivery3.onclick=()=>screen('y');wfCalendar.onclick=wfCalendar2.onclick=wfCalendar3.onclick=()=>screen('c');pmPrev.onclick=dmPrev.onclick=calPrev.onclick=()=>{prepMonth.setMonth(prepMonth.getMonth()-1);renderPrep();renderDelivery()};pmNext.onclick=dmNext.onclick=calNext.onclick=()=>{prepMonth.setMonth(prepMonth.getMonth()+1);renderPrep();renderDelivery()};prepVendorFilter.onchange=renderPrep;deliveryVendorFilter.onchange=renderDelivery;prAdd.onclick=()=>{openRecord(new Date().toISOString().slice(0,10));setRecordType('prep')};deliveryAdd.onclick=()=>{openRecord(new Date().toISOString().slice(0,10));setRecordType('delivery')};dayAdd.onclick=()=>openRecord(selectedPrepDate);typePrep.onclick=()=>setRecordType('prep');typeDelivery.onclick=()=>setRecordType('delivery');
 vs.onchange=()=>{localStorage.setItem(VK,vs.value);renderShop()};
 ol.onclick=()=>{renderList();openS(ls)};qa.onclick=()=>addNew(true);na.onclick=()=>addNew(false);
 search.oninput=renderDb;vf.onchange=renderDb;sw.onclick=()=>{sw.dataset.on=sw.dataset.on==='1'?'0':'1';sw.classList.toggle('on',sw.dataset.on==='1')};
