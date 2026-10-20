@@ -185,3 +185,15 @@ Purchase Vendor / Location Fix:
 - 地図プレビュー、Google Maps、Street Viewへの導線を追加
 - 場所検索はボタン実行式。入力中の自動候補は未実装
 - PWA cache: v14
+
+
+Dashboard Reminder / Reservation Map Phase:
+- 当日の予約がある場合、毎朝8:00（JST）にWeb Push通知する仕組みを追加
+- Supabase cron + Edge Function + Web Push購読を追加
+- 設定画面に「予約リマインド通知」を追加
+- ダッシュボードの 今日の仕込み / 納品 / 予約 / 仕入リスト はデータがある場合に色付き表示
+- 上記カードをタップすると内容POPを表示
+- 予約地図の下に「ナビ開始」ボタンを追加
+- 住所または場所検索で緯度経度が取得できた場合、Street Viewプレビューを表示
+- 地図プレビューをドラッグ / 拡大縮小できるように改善
+- PWA cache: v16
