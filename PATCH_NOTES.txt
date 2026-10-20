@@ -43,3 +43,6 @@ Responsive breakpoints:
 - Smartphone: < 700px
 - Tablet: 700px - 899px
 - PC: >= 900px
+
+Vercel:
+- Reconnected under chemicaraiz/3208-shopping for responsive preview deployment.
