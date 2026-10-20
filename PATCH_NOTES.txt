@@ -46,3 +46,22 @@ Responsive breakpoints:
 
 Vercel:
 - Reconnected under chemicaraiz/3208-shopping for responsive preview deployment.
+
+
+Core Workflow Phase:
+- 仕入 / 仕込み / 納品 / カレンダーを独立画面化
+- PC左ナビに「仕込み」「納品」「カレンダー」を分離
+- スマホメニューにも同項目を追加
+- 納品画面は月別・納品先別に絞り込み
+- 納品画面の追加ボタンは納品タイプで起動
+- 共通カレンダーは仕込み・納品を同時表示
+- 月移動は仕込み・納品・カレンダーで共通
+- 納品先は is_delivery=true の業者のみ表示
+- PWA cache: v4
+
+確認手順:
+1. PC左ナビで 仕入 / 仕込み / 納品 / カレンダー が独立して切り替わる
+2. 納品画面で納品先フィルタが使える
+3. 納品追加時に「納品」が初期選択される
+4. カレンダーに仕込み・納品の件数が同時表示される
+5. 月移動が3画面で同期する
