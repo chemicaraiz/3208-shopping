@@ -27,3 +27,19 @@ preparation_records.quantity CHECK: quantity >= 0
 
 本番 main:
 未変更。動作確認後にマージすること。
+
+
+Responsive UI Phase:
+- PC: 左サイドバー + 上部ヘッダー + 横幅を使う業務システムUI
+- Tablet: 1カラム中心の縦型UI
+- Smartphone: 従来のモバイルUIを維持
+- PC商品一覧: 2〜3カラム
+- PC商品DB / マスタ: 2カラム
+- PC仕込み管理: カレンダーと月間集計を横並び
+- PC専用ナビから仕入 / 仕込み・納品 / 仕入リスト / 商品DB / マスタ管理へ遷移
+- PWA cache: v3
+
+Responsive breakpoints:
+- Smartphone: < 700px
+- Tablet: 700px - 899px
+- PC: >= 900px
