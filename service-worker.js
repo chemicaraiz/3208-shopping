@@ -1,4 +1,4 @@
-const CACHE_NAME='3208-shopping-v20';
+const CACHE_NAME='3208-shopping-v23';
 const APP_SHELL=[
   './',
   './index.html',
