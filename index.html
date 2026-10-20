@@ -845,6 +845,26 @@ recordForm.onsubmit=async e=>{
   await runCloud(()=>api('preparation_records',{method:old?'PATCH':'POST',query:old?`?id=eq.${encodeURIComponent(old.id)}`:'',body,prefer:old?'return=minimal':'return=representation'}),old?'更新しました':'追加しました');
 };
 
+history.replaceState({screen:'h',depth:1},'',location.pathname+location.search+'#h');
+historyReady=true;
+navStack=['h'];
+updateBackButtons();
+
+window.addEventListener('popstate',e=>{
+  if(hasOpenOverlay()){
+    closeD();closeS();
+    return;
+  }
+  popHandling=true;
+  const target=e.state?.screen||'h';
+  const depth=Math.max(1,Number(e.state?.depth||1));
+  while(navStack.length>depth)navStack.pop();
+  if(navStack.length<depth)navStack.push(target);
+  else navStack[navStack.length-1]=target;
+  renderScreen(target);
+  popHandling=false;
+});
+
 loadCloud();
 
 let deferredPrompt=null;
