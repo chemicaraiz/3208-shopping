@@ -91,3 +91,11 @@ Reservation Multi Item Phase:
 - reservations.amount は予約全体の合計金額として保存
 - 既存予約の product_name / quantity は先頭商品と合計個数を互換用に保持
 - PWA cache: v6
+
+
+Safe Area Fix:
+- スマホ/PWAでヘッダーが画面上部に食い込む問題を修正
+- safe-area-inset-top / bottom に対応
+- mainの上余白をヘッダー高さ+セーフエリアに追従
+- drawer / sheet を 100dvh / 90dvh ベースに変更
+- PWA cache: v7
