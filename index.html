@@ -759,7 +759,7 @@ function renderDashboard(){
     ...todayReservations.map(r=>({type:'reserve',mark:'予',title:r.company||r.content||r.product||'予約',sub:`${r.product||r.content||''}${r.qty?'・'+fmtQty(r.qty)+'個':''}`,amount:r.amount?yen(r.amount):''}))
   ];
   dashTasks.innerHTML=tasks.length?tasks.map(t=>`<div class='dash-task'><div class='dash-type ${t.type}'>${t.mark}</div><div><div class='dash-task-title'>${esc(t.title)}</div><div class='dash-task-sub'>${esc(t.sub)}</div></div><div class='dash-task-amount'>${t.amount}</div></div>`).join(''):`<div class='dash-empty'>今日の予定はありません</div>`;
-  const cy=dt.getFullYear(),cm=dt.getMonth(),monthKey=`${cy}-${String(cm+1).padStart(2,'0')}`;
+  const cy=prepMonth.getFullYear(),cm=prepMonth.getMonth(),monthKey=`${cy}-${String(cm+1).padStart(2,'0')}`;
   if(window.dashCalTitle)dashCalTitle.textContent=`${cy}年${cm+1}月`;
   dashCal.innerHTML='';
   const first=(new Date(cy,cm,1).getDay()+6)%7,last=new Date(cy,cm+1,0).getDate(),holidays=buildJapaneseHolidays(cy);
